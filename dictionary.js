@@ -9,7 +9,7 @@
 //     parent.appendChild(elem);
 // }
 
-// fetch('./qAndA.json').then(response => {
+// fetch('./data.json').then(response => {
 //     return response.json();
 //   }).then(data => {
 //     let ul = createNode('ul');

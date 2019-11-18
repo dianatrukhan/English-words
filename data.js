@@ -2,7 +2,7 @@ let data = [
     {
      "question": "Apple",
      "variants": ["Банан", "Груша", "Яблоко", "Мандарин"],
-     "answer": "Яблоко"   
+     "answer": 2  
     },
 
      {
