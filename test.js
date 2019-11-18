@@ -1,89 +1,94 @@
 
-// let data = [
+// let dataForTest = [
 //     {
-//      "question": "Apple",
-//      "variants": ["Банан", "Груша", "Яблоко", "Мандарин"],
-//      "answer": "Яблоко"   
+//      'question': 'Apple',
+//      'variants': ['Банан', 'Груша', 'Яблоко', 'Мандарин'],
+//      'answer': 'Яблоко'   
 //     },
 
 //      {
-//          "question": "Grapes",
-//          "variants": ["Клубника", "Виноград", "Помело", "Клюква"],
-//          "answer": "Виноград"
+//          'question': 'Grapes',
+//          'variants': ['Клубника', 'Виноград', 'Помело', 'Клюква'],
+//          'answer': 'Виноград'
 //      },
 
 //      {
-//          "question": "Melon",
-//          "variants": ["Дыня", "Арбуз", "Персик", "Мандарин"],
-//          "answer": "Дыня"
+//          'question': 'Melon',
+//          'variants': ['Дыня', 'Арбуз', 'Персик', 'Мандарин'],
+//          'answer': 'Дыня'
 //      },
 
 //      {
-//          "question": "Strawberry",
-//          "variants": ["Голубика", "Виноград", "Ежевика", "Клубника"],
-//          "answer": "Клубника"
+//          'question': 'Strawberry',
+//          'variants': ['Голубика', 'Виноград', 'Ежевика', 'Клубника'],
+//          'answer': 'Клубника'
 //      }
 
-//  ];
+//  ];\\
+
 
 let plus = 0;
 let currAnswer = 0;
-let countAnswer = data.length;
+dataForTest = JSON.parse(localStorage.getItem("dataForTest"));
+let countAnswer = dataForTest.length;
 
 let options = [];
 options =  document.getElementsByClassName('option');
 Array.prototype.forEach.call(options, element => {
-    element.addEventListener ("click",()=>{
+    element.addEventListener ('click',()=>{
         check(Array.prototype.indexOf.call(options, element)+1);
     })
 })
 
 let startBtn = document.getElementById('start');
-startBtn.addEventListener ("click",() => {
+startBtn.addEventListener ('click', () => {
     check(0);
 })
+
+let endBtn = document.getElementById('end');
+
 
 
 
 function check(num){
-    let currVariants = data[currAnswer]["variants"];
     
-    console.log(data[0]["answer"]);
+   
     if(num == 0){ 
     
       Array.prototype.forEach.call(options, element => {
           element.style.display = 'block';
     
-        element.innerHTML = currVariants[Array.prototype.indexOf.call(options, element)];
+        element.innerHTML = dataForTest[currAnswer]['variants'][Array.prototype.indexOf.call(options, element)];
         
       })
 
-      document.getElementById('question').innerHTML = data[currAnswer]["question"];
+      document.getElementById('question').innerHTML = dataForTest[currAnswer]['question'];
         
       document.getElementById('start').style.display = 'none';
       document.getElementById('end').style.display = 'inline';
-      console.log(currVariants[data["answer"]]);
+     
   }
 
   else
   {
-    let answer = data[currAnswer]["answer"];
-      if (num == answer) {
-          plus++;
-          document.getElementById('result').innerHTML='Верно!';
+    let answer = dataForTest[currAnswer]['answer'];
+   
+      if (num == answer + 1) {
+          plus++; 
+          document.getElementById('result').innerHTML = 'Верно!';
       }
       else {
-          document.getElementById('result').innerHTML="Неверно! Правильный ответ: " +  data[currAnswer]["variants"][answer];
+          document.getElementById('result').innerHTML = 'Неверно! Правильный ответ: ' +  dataForTest[currAnswer]['variants'][answer];
       }
-          
+     
       currAnswer++;
      
-      
+     
       if(currAnswer < countAnswer){
         Array.prototype.forEach.call(options, element => {
-            element.innerHTML = currVariants[Array.prototype.indexOf.call(options, element)];
+            element.innerHTML = dataForTest[currAnswer]['variants'][Array.prototype.indexOf.call(options, element)];
         })
-          document.getElementById('question').innerHTML = data[currAnswer]["question"];
+          document.getElementById('question').innerHTML = dataForTest[currAnswer]['question'];
           
       }
       else
@@ -91,9 +96,9 @@ function check(num){
         Array.prototype.forEach.call(options, element => {
             element.style.display = 'none';
         })
-          document.getElementById('question').style.display='none';
-          document.getElementById('end').style.display='inline';
-          
+          document.getElementById('question').style.display = 'none';
+          document.getElementById('end').style.display = 'inline';
+           
           let percent =  Math.round(plus/countAnswer*100);				
           let res = 'Плохо!';
           if(percent > 70) res = 'Хорошо!';
@@ -102,5 +107,8 @@ function check(num){
           document.getElementById('result').innerHTML='Правильных ответов: ' + plus + ' из ' + countAnswer + ' (' + percent + '%)<br>' + res;
       }
   }
+
 }
+
+
  

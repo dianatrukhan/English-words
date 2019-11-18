@@ -1,8 +1,23 @@
-body{
+body {
 	font-family:verdana;
-	color:#444;
+	/* display: flex;
+	justify-content: center;
+	flex-direction: column; */
 }
-.option{
+
+
+
+.option {
+	
+	background-color: #a1cae3;
+	width: 300px;
 	display:none;
 	margin-bottom: 10px;
+	
 }
+
+/* #start, #end {
+	background-color: black;
+} */
+
+

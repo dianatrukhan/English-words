@@ -24,7 +24,7 @@
 //   });
 
 
-
+let dataForTest = [];
  let words = document.getElementById('words-list');
  let translates = document.getElementById('translates-list');
  Array.prototype.forEach.call(data, item => {
@@ -33,8 +33,17 @@
     word.innerHTML = item["question"];
   
     word.addEventListener("click", () => {
-        translate.innerHTML = item["answer"];
+       translate.innerHTML = item["variants"][item["answer"]];
+       let addBtn = document.createElement('button'); 
+       addBtn.innerHTML = "Я не знаю это слово";
+       document.body.appendChild(addBtn);
+       addBtn.addEventListener("click", () =>{
+         dataForTest.push(item);
+         localStorage.setItem("dataForTest", JSON.stringify(dataForTest));
+      })
     })
+
+   
     translates.appendChild(translate);
     words.appendChild(word);
    
