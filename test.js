@@ -19,7 +19,7 @@ startBtn.addEventListener ('click', () => {
 
 let backBtn = document.getElementById('back');
 backBtn.addEventListener ('click', () => {
-  location.href = 'dictionary.html';
+  location.href = 'index.html';
 })
 
 let questionBtn = document.getElementById('question');
