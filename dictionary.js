@@ -26,27 +26,74 @@
 
 let dataForTest = [];
  let words = document.getElementById('words-list');
- let translates = document.getElementById('translates-list');
- Array.prototype.forEach.call(data, item => {
-    let word = document.createElement('li'); 
-    let translate = document.createElement('li'); 
-    word.innerHTML = item["question"];
+ let translate = document.getElementById('translation');
+ let addBtn = document.getElementById('add');
+ //Array.prototype.sort.call(data, );
+//  Array.prototype.forEach.call(data, item => {
+//     let word = document.createElement('li'); 
+//    // let translate = document.createElement('li'); 
+//     word.innerHTML = item["question"];
   
-    word.addEventListener("click", () => {
-       translate.innerHTML = item["variants"][item["answer"]];
-       let addBtn = document.createElement('button'); 
-       addBtn.innerHTML = "Я не знаю это слово";
-       document.body.appendChild(addBtn);
-       addBtn.addEventListener("click", () =>{
-         dataForTest.push(item);
-         localStorage.setItem("dataForTest", JSON.stringify(dataForTest));
-      })
-    })
+//     word.addEventListener("click", () => {
+      
+//       addBtn.style.visibility = "visible";
+//        translate.innerHTML = item["variants"][item["answer"]];
+      
+//       //  addBtn.innerHTML = "Добавить к изучению";
+//       //  document.body.appendChild(addBtn);
+      
+//        addBtn.addEventListener("click", () =>{
+//          dataForTest.push(item);
+//          localStorage.setItem("dataForTest", JSON.stringify(dataForTest));
+//       })
+//     })
 
-   
-    translates.appendChild(translate);
-    words.appendChild(word);
+//     words.appendChild(word);
    
   
- });
+//  });
 
+data.forEach(item => {
+       let word = document.createElement('li'); 
+      // let translate = document.createElement('li'); 
+       word.innerHTML = item["question"];
+     
+       word.addEventListener("click", () => {
+         
+         addBtn.style.visibility = "visible";
+          translate.innerHTML = item["variants"][item["answer"]];
+         
+         //  addBtn.innerHTML = "Добавить к изучению";
+         //  document.body.appendChild(addBtn);
+         
+          addBtn.addEventListener("click", () =>{
+            dataForTest.push(item);
+            localStorage.setItem("dataForTest", JSON.stringify(dataForTest));
+         })
+       })
+   
+       words.appendChild(word);
+      
+     
+    });
+
+ let clearBtn = document.getElementById("clear-test");
+ clearBtn.addEventListener("click", () => {
+   if (localStorage.length == 0) {
+      alert ('В тесте нет слов.');
+      return;
+   }
+   localStorage.clear();
+   alert('Все слова из теста убраны.');
+})
+
+
+let startBtn = document.getElementById("start-test");
+ startBtn.addEventListener("click", () => {
+   if (localStorage.length == 0) {
+      alert ('В тесте нет слов. Добавьте слова к изучению, чтобы начать тест.');
+      return;
+   }
+
+   location.href = 'test.html';
+})

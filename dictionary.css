@@ -1,0 +1,80 @@
+body {
+	font-family:verdana;
+    margin: 0;
+
+}
+
+header {
+    background-color: #D6FFA6;
+    height: 100px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: rgb(88, 117, 54);
+    padding-top: 30px;
+    
+}
+#words {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+#words-list {
+    max-height: 400px;
+    overflow-y: scroll;
+    width: 30vw;
+
+}
+
+#translates-list {
+    width: 70vw;
+    background-color: #F5BFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+#add {
+    visibility: hidden;
+}
+
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+	
+    flex-direction: column;
+    justify-content: space-around
+}
+
+li {
+    display: block;
+    height: 30px;
+    text-align: center;
+}
+
+li:nth-child(even) {
+    background-color: #F5BFFF;
+}
+
+li:nth-child(odd) {
+    background-color: #F2A7FF;
+}
+
+#words-list li:hover {
+    cursor: pointer;
+}
+
+button {
+    background-color:rgb(88, 117, 54);
+    border: none;
+    color:  #D6FFA6;
+    cursor: pointer;
+    height: 100px;
+    width: 150px;
+}
