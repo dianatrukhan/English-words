@@ -1,32 +1,4 @@
 
-// let dataForTest = [
-//     {
-//      'question': 'Apple',
-//      'variants': ['Банан', 'Груша', 'Яблоко', 'Мандарин'],
-//      'answer': 'Яблоко'   
-//     },
-
-//      {
-//          'question': 'Grapes',
-//          'variants': ['Клубника', 'Виноград', 'Помело', 'Клюква'],
-//          'answer': 'Виноград'
-//      },
-
-//      {
-//          'question': 'Melon',
-//          'variants': ['Дыня', 'Арбуз', 'Персик', 'Мандарин'],
-//          'answer': 'Дыня'
-//      },
-
-//      {
-//          'question': 'Strawberry',
-//          'variants': ['Голубика', 'Виноград', 'Ежевика', 'Клубника'],
-//          'answer': 'Клубника'
-//      }
-
-//  ];\\
-
-
 let plus = 0;
 let currAnswer = 0;
 dataForTest = JSON.parse(localStorage.getItem("dataForTest"));
@@ -50,11 +22,6 @@ backBtn.addEventListener ('click', () => {
   location.href = 'dictionary.html';
 })
 
-let endBtn = document.getElementById('end');
-endBtn.addEventListener ('click', () => {
-  location.href = 'test.html';
-})
-
 let questionBtn = document.getElementById('question');
 let result = document.getElementById('result');
 
@@ -72,8 +39,6 @@ function check(num){
       questionBtn.innerHTML = dataForTest[currAnswer]['question'];
         
       startBtn.style.display = 'none';
-      endBtn.style.display = 'none';
-     
   }
 
   else
@@ -84,7 +49,7 @@ function check(num){
           result.innerHTML = 'Верно!';
       }
       else {
-          result.innerHTML = 'Неверно! Правильный ответ: ' +  dataForTest[currAnswer]['variants'][answer];
+          result.innerHTML = 'Неверно!' + '<br>' + 'Правильный ответ: ' + '<br>' + dataForTest[currAnswer]['variants'][answer];
       }
      
       currAnswer++;
@@ -102,7 +67,6 @@ function check(num){
             element.style.display = 'none';
         })
         questionBtn.style.display = 'none';
-          endBtn.style.display = 'block';
            
           let percent =  Math.round(plus/countAnswer*100);				
           let res = 'Плохо!';

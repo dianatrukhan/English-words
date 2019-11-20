@@ -1,11 +1,36 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset = 'UTF-8'>
+        <meta name = 'viewport' content='width = device-width, initial-scale = 1.0'>
         <title>Словарь</title>
+        <link href = 'index.css' rel = 'stylesheet'>
+        <link rel='shortcut icon' href='#'>
     </head>
+
     <body>
-        <h1>Словарь</h1>
-        <button><a href='test.html'>
-            Начать тест</a>
-        </button>
+       <header>
+           <h2>Англо-русский словарь</h2>
+       </header>
+       <div id = "wrap">
+       <div id = "words">
+            <ul id = 'words-list'>
+                </ul>
+            <div id = "translates-list">
+                <div id = "translation">
+                   
+                </div>
+                <!-- <button id = "add">Добавить к изучению</button> -->
+            </div>
+        </div>
+        <div id = "test-buttons">
+            <button id = "start-test">Начать тест</button>
+            <button id = "clear-test">Очистить тест</button>
+            
+        </div>
+        </div>
     </body>
+    <script src = 'data.js'></script>
+<script src = 'index.js'></script>
 </html>
+
