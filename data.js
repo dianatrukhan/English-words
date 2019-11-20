@@ -23,4 +23,11 @@ let data = [
          'variants': ['Голубика', 'Виноград', 'Ежевика', 'Клубника'],
          'answer': 3
      },
+
  ];
+
+ data.sort(function(a, b) {
+    let x = a.question;
+    let y = b.question;
+    return x < y ? -1 : x > y ? 1 : 0;
+ });

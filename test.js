@@ -45,14 +45,21 @@ startBtn.addEventListener ('click', () => {
     check(0);
 })
 
+let backBtn = document.getElementById('back');
+backBtn.addEventListener ('click', () => {
+  location.href = 'dictionary.html';
+})
+
 let endBtn = document.getElementById('end');
+endBtn.addEventListener ('click', () => {
+  location.href = 'test.html';
+})
 
-
+let questionBtn = document.getElementById('question');
+let result = document.getElementById('result');
 
 
 function check(num){
-    
-   
     if(num == 0){ 
     
       Array.prototype.forEach.call(options, element => {
@@ -62,33 +69,31 @@ function check(num){
         
       })
 
-      document.getElementById('question').innerHTML = dataForTest[currAnswer]['question'];
+      questionBtn.innerHTML = dataForTest[currAnswer]['question'];
         
-      document.getElementById('start').style.display = 'none';
-      document.getElementById('end').style.display = 'inline';
+      startBtn.style.display = 'none';
+      endBtn.style.display = 'none';
      
   }
 
   else
   {
     let answer = dataForTest[currAnswer]['answer'];
-   
       if (num == answer + 1) {
           plus++; 
-          document.getElementById('result').innerHTML = 'Верно!';
+          result.innerHTML = 'Верно!';
       }
       else {
-          document.getElementById('result').innerHTML = 'Неверно! Правильный ответ: ' +  dataForTest[currAnswer]['variants'][answer];
+          result.innerHTML = 'Неверно! Правильный ответ: ' +  dataForTest[currAnswer]['variants'][answer];
       }
      
       currAnswer++;
-     
-     
+      
       if(currAnswer < countAnswer){
         Array.prototype.forEach.call(options, element => {
             element.innerHTML = dataForTest[currAnswer]['variants'][Array.prototype.indexOf.call(options, element)];
         })
-          document.getElementById('question').innerHTML = dataForTest[currAnswer]['question'];
+        questionBtn.innerHTML = dataForTest[currAnswer]['question'];
           
       }
       else
@@ -96,19 +101,21 @@ function check(num){
         Array.prototype.forEach.call(options, element => {
             element.style.display = 'none';
         })
-          document.getElementById('question').style.display = 'none';
-          document.getElementById('end').style.display = 'inline';
+        questionBtn.style.display = 'none';
+          endBtn.style.display = 'block';
            
           let percent =  Math.round(plus/countAnswer*100);				
           let res = 'Плохо!';
           if(percent > 70) res = 'Хорошо!';
           if(percent == 100) res = 'Отлично!';
           
-          document.getElementById('result').innerHTML='Правильных ответов: ' + plus + ' из ' + countAnswer + ' (' + percent + '%)<br>' + res;
+          result.innerHTML='Правильных ответов: ' + plus + ' из ' + countAnswer + ' (' + percent + '%)<br>' + res;
       }
   }
 
 }
+
+
 
 
  

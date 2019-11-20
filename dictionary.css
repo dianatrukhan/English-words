@@ -36,9 +36,13 @@ h1 {
     justify-content: space-around;
 }
 
+#translate {
+    color: white;
+}
+
 
 #add {
-    visibility: hidden;
+    display: none;
 }
 
 

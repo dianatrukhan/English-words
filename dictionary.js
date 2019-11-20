@@ -24,6 +24,9 @@
 //   });
 
 
+
+
+
 let dataForTest = [];
  let words = document.getElementById('words-list');
  let translate = document.getElementById('translation');
@@ -60,16 +63,21 @@ data.forEach(item => {
      
        word.addEventListener("click", () => {
          
-         addBtn.style.visibility = "visible";
-          translate.innerHTML = item["variants"][item["answer"]];
-         
+        // addBtn.style.display = "block";
+      //   translate.innerHTML = '<p style = "color:white"></p>'item["question"];
+      translate.innerHTML += item["variants"][item["answer"]];
+         translate.innerHTML += "<button onclick = 'addBtn()'>Добавить к изучению</button>"
          //  addBtn.innerHTML = "Добавить к изучению";
          //  document.body.appendChild(addBtn);
          
-          addBtn.addEventListener("click", () =>{
+         addBtn = function () {
+             if (JSON.parse(localStorage.getItem('dataForTest')) == item){
+                alert('Слово уже добавлено к изучению.');
+                return;
+             }
             dataForTest.push(item);
             localStorage.setItem("dataForTest", JSON.stringify(dataForTest));
-         })
+         }
        })
    
        words.appendChild(word);
