@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <class> 
+      <book id = '1'> 
+          <title>Джейн Эйр</title>
+          <author>Шарлотта Бронте</author>
+          <price>12.00 BYN</price>
+          <publishing>Эксмо</publishing>
+          <ISBN>‎9785041009173</ISBN>
+       </book> 
+       <book id = '2'> 
+          <title>Гордость и предубеждение</title>
+          <author>Джейн Остин</author>
+          <price>10.50 BYN</price>
+          <publishing>АСТ</publishing>
+         <ISBN>9785041009175</ISBN>
+      </book> 
+       <book id = '3'>
+          <title>Грозовой перевал</title>
+         <author>Эмили Бронте</author>
+          <price>11.00 BYN</price>
+          <publishing>АСТ</publishing>
+          <ISBN>9785041009175</ISBN>
+       </book> 
+
+    </class> 
